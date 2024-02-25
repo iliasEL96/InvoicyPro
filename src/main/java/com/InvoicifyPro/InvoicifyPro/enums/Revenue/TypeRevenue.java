@@ -1,4 +1,4 @@
-package com.InvoicifyPro.InvoicifyPro.Enums.Revenue;
+package com.InvoicifyPro.InvoicifyPro.enums.Revenue;
 
 public enum TypeRevenue {
     PAYPAL,

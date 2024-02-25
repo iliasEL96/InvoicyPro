@@ -1,4 +1,4 @@
-package com.InvoicifyPro.InvoicifyPro.Enums.Charge;
+package com.InvoicifyPro.InvoicifyPro.enums.Charge;
 
 public enum TypeDepense {
     PUBLICITE_FACEBOOK,

@@ -1,7 +1,7 @@
-package com.InvoicifyPro.InvoicifyPro.Entity;
+package com.InvoicifyPro.InvoicifyPro.entity;
 
-import com.InvoicifyPro.InvoicifyPro.Enums.Refund.MoyenDeRemboursement;
-import com.InvoicifyPro.InvoicifyPro.Enums.Refund.TypeRemboursement;
+import com.InvoicifyPro.InvoicifyPro.enums.Refund.MoyenDeRemboursement;
+import com.InvoicifyPro.InvoicifyPro.enums.Refund.TypeRemboursement;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

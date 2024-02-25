@@ -1,6 +1,6 @@
-package com.InvoicifyPro.InvoicifyPro.Entity;
+package com.InvoicifyPro.InvoicifyPro.entity;
 
-import com.InvoicifyPro.InvoicifyPro.Enums.Revenue.TypeRevenue;
+import com.InvoicifyPro.InvoicifyPro.enums.Revenue.TypeRevenue;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
