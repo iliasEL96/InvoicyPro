@@ -2,10 +2,15 @@ package com.InvoicifyPro.InvoicifyPro.entity;
 
 import com.InvoicifyPro.InvoicifyPro.enums.Revenue.TypeRevenue;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
-
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+import java.math.BigDecimal;
 import java.time.LocalDate;
+
 
 
 @Getter
@@ -17,23 +22,27 @@ public class Revenu {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private double montant;
+    @NotNull
+    @Min(0)
+    private BigDecimal montant;
 
     @Enumerated(EnumType.STRING)
     private TypeRevenue typeRevenue;
 
     private LocalDate date;
 
+    @CreationTimestamp
     private LocalDate createdAt;
 
+    @UpdateTimestamp
     private LocalDate updatedAt;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinColumn(name = "accounting_id")
     private Accounting accounting;
 
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "commande_id")
     private Commande commande;
 }
