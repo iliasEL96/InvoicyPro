@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.util.List;
 
 
@@ -16,20 +17,28 @@ public class Accounting {
     private Long id;
 
     private double benefQuotidien;
+
     private double margeQuotidien;
+
     private double roasQuotidien;
+
     private double benefTotal_AvantImpot;
+
     private double margeAvantImpot;
+
     private double roasTotal;
+
     private double chiffreDaffaire;
+
     private double duAUrssaf;
+
     private double benefTotal_ApresImpot;
+
     private double margeTotalApresImpot;
 
+    private LocalDate createdAt;
 
-
-
-
+    private LocalDate updatedAt;
 
     private Boolean isRefund ;
 
