@@ -25,7 +25,7 @@ public class Accounting {
 
     private double roasQuotidien;
 
-    private BigDecimal  benefTotal_AvantImpot;
+    private BigDecimal  benefTotalAvantImpot;
 
     private double margeAvantImpot;
 
