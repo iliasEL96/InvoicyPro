@@ -1,7 +1,7 @@
-package com.InvoicifyPro.InvoicifyPro.Entity;
+package com.InvoicifyPro.InvoicifyPro.entity;
 
 
-import com.InvoicifyPro.InvoicifyPro.Enums.Charge.TypeDepense;
+import com.InvoicifyPro.InvoicifyPro.enums.Charge.TypeDepense;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

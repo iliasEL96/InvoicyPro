@@ -1,4 +1,4 @@
-package com.InvoicifyPro.InvoicifyPro.Entity;
+package com.InvoicifyPro.InvoicifyPro.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;

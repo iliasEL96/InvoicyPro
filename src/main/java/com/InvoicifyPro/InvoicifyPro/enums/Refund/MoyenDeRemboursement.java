@@ -1,4 +1,4 @@
-package com.InvoicifyPro.InvoicifyPro.Enums.Refund;
+package com.InvoicifyPro.InvoicifyPro.enums.Refund;
 
 public enum MoyenDeRemboursement {
     CARTE_CREDIT,
