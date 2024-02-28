@@ -1,6 +1,6 @@
-package com.InvoicifyPro.InvoicifyPro.enums.Charge;
+package com.InvoicifyPro.InvoicifyPro.enums.expense;
 
-public enum TypeDepense {
+public enum ExpenseType {
     PUBLICITE_FACEBOOK,
     PUBLICITE_INSTAGRAM,
     PUBLICITE_TIKTOK,

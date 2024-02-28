@@ -11,7 +11,7 @@ import java.time.LocalDate;
 @Setter
 @Getter
 @Entity
-public class Commande {
+public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

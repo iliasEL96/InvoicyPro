@@ -1,7 +1,7 @@
 package com.InvoicifyPro.InvoicifyPro.entity;
 
-import com.InvoicifyPro.InvoicifyPro.enums.Refund.MoyenDeRemboursement;
-import com.InvoicifyPro.InvoicifyPro.enums.Refund.TypeRemboursement;
+import com.InvoicifyPro.InvoicifyPro.enums.Refund.RefundMethod;
+import com.InvoicifyPro.InvoicifyPro.enums.Refund.RefundType;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,10 +24,10 @@ public class Refund {
     private BigDecimal montantRemboursement;
 
     @Enumerated(EnumType.STRING)
-    private MoyenDeRemboursement moyenDeRemboursement;
+    private RefundMethod refundMethod;
 
     @Enumerated(EnumType.STRING)
-    private TypeRemboursement typeRemboursement;
+    private RefundType refundType;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinColumn (name = "accounting_id")
