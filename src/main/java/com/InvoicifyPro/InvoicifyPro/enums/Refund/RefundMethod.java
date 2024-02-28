@@ -1,6 +1,6 @@
 package com.InvoicifyPro.InvoicifyPro.enums.Refund;
 
-public enum MoyenDeRemboursement {
+public enum RefundMethod {
     CARTE_CREDIT,
     PAYPAL,
     KLARNA,

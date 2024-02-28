@@ -1,6 +1,6 @@
 package com.InvoicifyPro.InvoicifyPro.enums.Refund;
 
-public enum TypeRemboursement {
+public enum RefundType {
     PARTIEL,
     TOTAL
 }

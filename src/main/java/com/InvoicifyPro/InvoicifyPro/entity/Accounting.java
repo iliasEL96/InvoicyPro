@@ -48,10 +48,10 @@ public class Accounting {
     private Boolean isRefund ;
 
     @OneToMany(mappedBy = "accounting", fetch=FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Charge> charges;
+    private List<Expense> expenses;
 
     @OneToMany(mappedBy = "accounting", fetch=FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Revenu> revenus;
+    private List<Revenue> revenues;
 
     @OneToMany(mappedBy = "accounting", fetch=FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Refund> refunds;

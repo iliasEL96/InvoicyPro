@@ -1,6 +1,6 @@
 package com.InvoicifyPro.InvoicifyPro.enums.Revenue;
 
-public enum TypeRevenue {
+public enum RevenueType {
     PAYPAL,
     KLARNA_MERCHANT,
     Credit_CARD,

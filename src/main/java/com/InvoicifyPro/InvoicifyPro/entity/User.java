@@ -1,6 +1,6 @@
 package com.InvoicifyPro.InvoicifyPro.entity;
 
-import com.InvoicifyPro.InvoicifyPro.enums.Users.Roles;
+import com.InvoicifyPro.InvoicifyPro.enums.User.RoleType;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -9,7 +9,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-public class Users {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -18,5 +18,5 @@ public class Users {
     private String motDePasse;
 
     @Enumerated(EnumType.STRING)
-    private Roles role;
+    private RoleType roleType;
 }
