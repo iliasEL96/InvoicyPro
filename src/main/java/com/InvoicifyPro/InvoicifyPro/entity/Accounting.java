@@ -3,7 +3,11 @@ package com.InvoicifyPro.InvoicifyPro.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 
 
@@ -15,30 +19,40 @@ public class Accounting {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private double benefQuotidien;
+    private BigDecimal  benefQuotidien;
+
     private double margeQuotidien;
+
     private double roasQuotidien;
-    private double benefTotal_AvantImpot;
+
+    private BigDecimal  benefTotalAvantImpot;
+
     private double margeAvantImpot;
+
     private double roasTotal;
-    private double chiffreDaffaire;
-    private double duAUrssaf;
-    private double benefTotal_ApresImpot;
+
+    private BigDecimal  chiffreDaffaire;
+
+    private BigDecimal  duAUrssaf;
+
+    private BigDecimal benefTotalApresImpot;
+
     private double margeTotalApresImpot;
 
+    @CreationTimestamp
+    private LocalDate createdAt;
 
-
-
-
+    @UpdateTimestamp
+    private LocalDate updatedAt;
 
     private Boolean isRefund ;
 
-    @OneToMany(mappedBy = "accounting")
+    @OneToMany(mappedBy = "accounting", fetch=FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Charge> charges;
 
-    @OneToMany(mappedBy = "accounting")
+    @OneToMany(mappedBy = "accounting", fetch=FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Revenu> revenus;
 
-    @OneToMany(mappedBy = "accounting")
-    private List<Refund> refund;
+    @OneToMany(mappedBy = "accounting", fetch=FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Refund> refunds;
 }

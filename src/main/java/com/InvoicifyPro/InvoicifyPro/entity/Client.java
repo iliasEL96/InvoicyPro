@@ -1,6 +1,7 @@
 package com.InvoicifyPro.InvoicifyPro.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,9 +18,10 @@ public class Client {
 
     private String nomComplet;
 
+    @Email
     private String email;
     private String numeroTelephone;
 
-    @ManyToMany(mappedBy = "clients")
+    @ManyToMany(mappedBy = "clients", fetch = FetchType.LAZY)
     private List<Refund> refunds;
 }
