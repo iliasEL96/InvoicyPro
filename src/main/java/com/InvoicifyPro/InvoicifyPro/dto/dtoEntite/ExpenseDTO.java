@@ -1,6 +1,7 @@
 package com.InvoicifyPro.InvoicifyPro.dto.dtoEntite;
 
 
+import com.InvoicifyPro.InvoicifyPro.dto.SimpleDTO;
 import com.InvoicifyPro.InvoicifyPro.enums.expense.ExpenseType;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,7 +13,7 @@ import java.time.LocalDate;
 
 @Getter
 @Setter
-public class ExpenseDTO {
+public class ExpenseDTO implements SimpleDTO {
 
     private Long id;
 

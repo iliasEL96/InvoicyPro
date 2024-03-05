@@ -1,5 +1,6 @@
 package com.InvoicifyPro.InvoicifyPro.dto.dtoEntite;
 
+import com.InvoicifyPro.InvoicifyPro.dto.SimpleDTO;
 import com.InvoicifyPro.InvoicifyPro.enums.Refund.RefundMethod;
 import com.InvoicifyPro.InvoicifyPro.enums.Refund.RefundType;
 import lombok.Getter;
@@ -12,7 +13,7 @@ import java.util.List;
 
 @Getter
 @Setter
-public class RefundDTO {
+public class RefundDTO implements SimpleDTO {
 
     private Long id;
 
