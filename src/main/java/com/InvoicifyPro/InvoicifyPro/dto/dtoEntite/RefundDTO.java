@@ -29,6 +29,6 @@ public class RefundDTO implements SimpleDTO {
 
     private LocalDate updatedAt;
 
-    private List<ClientDTO> clients;
+    private List<Long>  clientsId;
 
 }

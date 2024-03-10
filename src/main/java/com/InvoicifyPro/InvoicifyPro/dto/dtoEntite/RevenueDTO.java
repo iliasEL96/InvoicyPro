@@ -1,10 +1,12 @@
 package com.InvoicifyPro.InvoicifyPro.dto.dtoEntite;
 
 import com.InvoicifyPro.InvoicifyPro.dto.SimpleDTO;
+import com.InvoicifyPro.InvoicifyPro.entity.Order;
 import com.InvoicifyPro.InvoicifyPro.enums.Revenue.RevenueType;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Getter
@@ -13,7 +15,7 @@ public class RevenueDTO implements SimpleDTO {
 
     private Long id;
 
-    private double montant;
+    private BigDecimal montant;
 
     private RevenueType revenueType;
 
@@ -25,5 +27,5 @@ public class RevenueDTO implements SimpleDTO {
 
     private Long accountingId;
 
-    private Long commandeId;
+    private Long orderId;
 }
