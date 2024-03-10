@@ -1,5 +1,6 @@
 package com.InvoicifyPro.InvoicifyPro.entity;
 
+import com.InvoicifyPro.InvoicifyPro.dto.Identifiable;
 import com.InvoicifyPro.InvoicifyPro.enums.Refund.RefundMethod;
 import com.InvoicifyPro.InvoicifyPro.enums.Refund.RefundType;
 import jakarta.persistence.*;
@@ -15,7 +16,7 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-public class Refund {
+public class Refund implements Identifiable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

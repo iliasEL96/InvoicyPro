@@ -1,6 +1,7 @@
 package com.InvoicifyPro.InvoicifyPro.entity;
 
 
+import com.InvoicifyPro.InvoicifyPro.dto.Identifiable;
 import com.InvoicifyPro.InvoicifyPro.enums.expense.ExpenseType;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -15,7 +16,7 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @Entity
-public class Expense {
+public class Expense implements Identifiable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
