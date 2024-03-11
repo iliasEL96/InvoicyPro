@@ -6,9 +6,13 @@ import com.InvoicifyPro.InvoicifyPro.entity.Expense;
 import com.InvoicifyPro.InvoicifyPro.exception.ResourceNotFoundException;
 import com.InvoicifyPro.InvoicifyPro.repositories.ExpenseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class ExpenseServiceImpl implements ExpenseService {
 
     private final ExpenseRepository expenseRepository;
@@ -32,6 +36,7 @@ public class ExpenseServiceImpl implements ExpenseService {
     }
 
     @Override
+    @Transactional
     public ExpenseDTO save(ExpenseDTO expenseDTO) {
         Expense expense = expenseMapper.expenseDTOToExpense(expenseDTO);
         expenseRepository.save(expense);
@@ -39,6 +44,7 @@ public class ExpenseServiceImpl implements ExpenseService {
     }
 
     @Override
+    @Transactional
     public void deleteById(Long id) {
         expenseRepository.deleteById(id);
     }

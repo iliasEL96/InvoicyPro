@@ -6,11 +6,14 @@ import com.InvoicifyPro.InvoicifyPro.entity.Accounting;
 import com.InvoicifyPro.InvoicifyPro.exception.ResourceNotFoundException;
 import com.InvoicifyPro.InvoicifyPro.repositories.AccountingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+@Service
 public class AccountingServiceImpl implements AccountingService{
 
     private final AccountingRepository accountingRepository;
@@ -34,6 +37,7 @@ public class AccountingServiceImpl implements AccountingService{
     }
 
     @Override
+    @Transactional
     public AccountingDTO save(AccountingDTO dto) {
         Accounting accounting = accountingMapper.accountingDTOToAccounting(dto);
         accountingRepository.save(accounting);
@@ -41,6 +45,7 @@ public class AccountingServiceImpl implements AccountingService{
     }
 
     @Override
+    @Transactional
     public void deletebyId(Long id) {
         accountingRepository.deleteById(id);
     }
