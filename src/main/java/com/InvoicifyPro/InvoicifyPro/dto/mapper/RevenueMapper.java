@@ -11,7 +11,7 @@ public interface RevenueMapper {
 
     @Mapping(source = "order.id" , target = "orderId")
     @Mapping(source = "accounting.id" , target = "accountingId")
-    public RevenueDTO revenuToRevenueDTO(Revenue revenue);
+    public RevenueDTO revenueToRevenueDTO(Revenue revenue);
 
     public Revenue revenueDTOToRevenu (RevenueDTO dto);
 
