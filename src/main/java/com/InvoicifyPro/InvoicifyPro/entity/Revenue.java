@@ -1,5 +1,6 @@
 package com.InvoicifyPro.InvoicifyPro.entity;
 
+import com.InvoicifyPro.InvoicifyPro.dto.Identifiable;
 import com.InvoicifyPro.InvoicifyPro.enums.Revenue.RevenueType;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
@@ -16,7 +17,7 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @Entity
-public class Revenue {
+public class Revenue implements Identifiable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,7 +41,6 @@ public class Revenue {
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinColumn(name = "accounting_id")
     private Accounting accounting;
-
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "commande_id")

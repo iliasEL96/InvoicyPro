@@ -1,5 +1,6 @@
 package com.InvoicifyPro.InvoicifyPro.entity;
 
+import com.InvoicifyPro.InvoicifyPro.dto.Identifiable;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import lombok.Getter;
@@ -11,7 +12,7 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-public class Client {
+public class Client implements Identifiable {
    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
