@@ -3,7 +3,6 @@ package com.InvoicifyPro.InvoicifyPro.dto.mapper;
 import com.InvoicifyPro.InvoicifyPro.dto.Identifiable;
 import com.InvoicifyPro.InvoicifyPro.dto.dtoEntite.RefundDTO;
 import com.InvoicifyPro.InvoicifyPro.entity.Refund;
-import jakarta.persistence.Id;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
@@ -18,7 +17,7 @@ public interface RefundMapper {
     @Mappings(
             @Mapping(source = "clients", target = "clientsId", qualifiedByName = "idList")
     )
-    public RefundDTO refundToDTO(Refund refund);
+    public RefundDTO refundToRefundDTO(Refund refund);
 
     public Refund refundDTOToRefund(RefundDTO dto);
 
