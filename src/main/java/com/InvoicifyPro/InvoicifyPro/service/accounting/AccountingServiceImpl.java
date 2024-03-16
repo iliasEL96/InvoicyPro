@@ -46,7 +46,7 @@ public class AccountingServiceImpl implements AccountingService{
 
     @Override
     @Transactional
-    public void deletebyId(Long id) {
+    public void deleteById(Long id) {
         accountingRepository.deleteById(id);
     }
 }
