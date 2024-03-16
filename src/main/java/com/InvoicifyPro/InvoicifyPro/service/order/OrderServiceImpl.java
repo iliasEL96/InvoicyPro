@@ -6,6 +6,7 @@ import com.InvoicifyPro.InvoicifyPro.dto.mapper.OrderMapper;
 import com.InvoicifyPro.InvoicifyPro.entity.Order;
 import com.InvoicifyPro.InvoicifyPro.exception.ResourceNotFoundException;
 import com.InvoicifyPro.InvoicifyPro.repositories.OrderRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,6 +19,7 @@ public class OrderServiceImpl implements OrderService {
 
     private final OrderMapper orderMapper;
 
+    @Autowired
     public OrderServiceImpl(OrderRepository orderRepository, OrderDTO orderDTO, OrderMapper orderMapper) {
         this.orderRepository = orderRepository;
         this.orderMapper = orderMapper;
