@@ -2,6 +2,7 @@ package com.InvoicifyPro.InvoicifyPro.controller;
 
 import com.InvoicifyPro.InvoicifyPro.dto.dtoEntite.ClientDTO;
 import com.InvoicifyPro.InvoicifyPro.service.client.ClientService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,6 +14,7 @@ public class ClientController {
 
     private final ClientService clientService;
 
+    @Autowired
     public ClientController(ClientService clientService) {
         this.clientService = clientService;
     }
