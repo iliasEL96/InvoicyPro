@@ -8,7 +8,7 @@ public interface ClientService {
 
     public List<ClientDTO> findAll();
 
-    public ClientDTO findByAll(Long id);
+    public ClientDTO findById(Long id);
 
     public ClientDTO save (ClientDTO clientDTO);
 

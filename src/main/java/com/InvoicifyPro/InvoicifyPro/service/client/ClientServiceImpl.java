@@ -29,7 +29,7 @@ public class ClientServiceImpl implements ClientService{
     }
 
     @Override
-    public ClientDTO findByAll(Long id) {
+    public ClientDTO findById(Long id) {
     Client client = clientRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Client", id));
 
         return clientMapper.clientToClientDto(client);
