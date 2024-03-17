@@ -47,6 +47,9 @@ public class AccountingServiceImpl implements AccountingService{
     @Override
     @Transactional
     public void deleteById(Long id) {
+        if(accountingRepository.existsById(id)){
+            throw new ResourceNotFoundException("Accounting",id );
+        }
         accountingRepository.deleteById(id);
     }
 }

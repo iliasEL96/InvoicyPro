@@ -47,6 +47,9 @@ public class RevenueServiceImpl implements RevenueService{
     @Override
     @Transactional
     public void deleteById(Long id) {
+        if(revenueRepository.existsById(id)){
+            throw new ResourceNotFoundException("Revenue",id );
+        }
         revenueRepository.deleteById(id);
     }
 }
