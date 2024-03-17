@@ -8,6 +8,7 @@ import com.InvoicifyPro.InvoicifyPro.exception.ResourceNotFoundException;
 import com.InvoicifyPro.InvoicifyPro.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -38,6 +39,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public UserDTO save(UserDTO UserDTO) {
         User user = userMapper.userDTOToUser(UserDTO);
         userRepository.save(user);
@@ -45,7 +47,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public void deleteById(Long id) {
+        if(userRepository.existsById(id)){
+            throw new ResourceNotFoundException("User",id );
+        }
         userRepository.deleteById(id);
 
     }

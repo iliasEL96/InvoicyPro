@@ -6,6 +6,7 @@ import com.InvoicifyPro.InvoicifyPro.exception.ResourceNotFoundException;
 import com.InvoicifyPro.InvoicifyPro.repositories.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -36,6 +37,7 @@ public class ClientServiceImpl implements ClientService{
     }
 
     @Override
+    @Transactional
     public ClientDTO save(ClientDTO clientDTO) {
         Client client = clientMapper.clientDtoToClient(clientDTO);
         clientRepository.save(client);
@@ -43,7 +45,11 @@ public class ClientServiceImpl implements ClientService{
     }
 
     @Override
+    @Transactional
     public void deleteById(Long id) {
+        if(clientRepository.existsById(id)){
+            throw new ResourceNotFoundException("Client",id );
+        }
         clientRepository.deleteById(id);
     }
 }
