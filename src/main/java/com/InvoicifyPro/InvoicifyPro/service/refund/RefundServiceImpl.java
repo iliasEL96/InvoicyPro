@@ -7,6 +7,7 @@ import com.InvoicifyPro.InvoicifyPro.exception.ResourceNotFoundException;
 import com.InvoicifyPro.InvoicifyPro.repositories.RefundRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -37,6 +38,7 @@ public class RefundServiceImpl implements RefundService {
     }
 
     @Override
+    @Transactional
     public RefundDTO save(RefundDTO refundDTO) {
         Refund refund = refundMapper.refundDTOToRefund(refundDTO);
         refundRepository.save(refund);
@@ -44,7 +46,11 @@ public class RefundServiceImpl implements RefundService {
     }
 
     @Override
+    @Transactional
     public void deleteById(Long id) {
+        if(refundRepository.existsById(id)){
+            throw new ResourceNotFoundException("Refund",id );
+        }
         refundRepository.deleteById(id);
     }
 

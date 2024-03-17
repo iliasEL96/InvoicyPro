@@ -8,6 +8,7 @@ import com.InvoicifyPro.InvoicifyPro.exception.ResourceNotFoundException;
 import com.InvoicifyPro.InvoicifyPro.repositories.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -39,6 +40,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    @Transactional
     public OrderDTO save(OrderDTO orderdto) {
     Order order = orderMapper.orderDTOToOrder(orderdto);
         orderRepository.save(order);
@@ -46,7 +48,11 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    @Transactional
     public void deleteById(Long id) {
+        if(orderRepository.existsById(id)){
+            throw new ResourceNotFoundException("Order",id );
+        }
         orderRepository.deleteById(id);
     }
 }
