@@ -21,7 +21,7 @@ public class ExpenseController {
     }
 
     @GetMapping
-    public List<ExpenseDTO> getAllExpense(){
+    public List<ExpenseDTO> getAllExpenses(){
         return expenseService.findAll();
     }
 

@@ -35,7 +35,7 @@ public class RefundController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteById(@PathVariable Long id){
+    public void deleteRefund(@PathVariable Long id){
          refundService.deleteById(id);
     }
 
