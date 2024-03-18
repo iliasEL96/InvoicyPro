@@ -1,28 +1,35 @@
 package com.InvoicifyPro.InvoicifyPro.service.accounting;
 
 import com.InvoicifyPro.InvoicifyPro.dto.dtoEntite.AccountingDTO;
+import com.InvoicifyPro.InvoicifyPro.dto.dtoEntite.ExpenseDTO;
+import com.InvoicifyPro.InvoicifyPro.dto.dtoEntite.RevenueDTO;
 import com.InvoicifyPro.InvoicifyPro.dto.mapper.AccountingMapper;
 import com.InvoicifyPro.InvoicifyPro.entity.Accounting;
 import com.InvoicifyPro.InvoicifyPro.exception.ResourceNotFoundException;
 import com.InvoicifyPro.InvoicifyPro.repositories.AccountingRepository;
+import com.InvoicifyPro.InvoicifyPro.service.expense.ExpenseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
 public class AccountingServiceImpl implements AccountingService{
 
     private final AccountingRepository accountingRepository;
+
     private final AccountingMapper accountingMapper;
 
+    private final ExpenseService expenseService;
+
     @Autowired
-    public AccountingServiceImpl(AccountingRepository accountingRepository, AccountingMapper accountingMapper){
+    public AccountingServiceImpl(AccountingRepository accountingRepository, AccountingMapper accountingMapper, ExpenseService expenseService){
         this.accountingRepository = accountingRepository;
         this.accountingMapper = accountingMapper;
+        this.expenseService = expenseService;
     }
 
     @Override
@@ -51,5 +58,18 @@ public class AccountingServiceImpl implements AccountingService{
             throw new ResourceNotFoundException("Accounting",id );
         }
         accountingRepository.deleteById(id);
+    }
+
+    @Override
+    public BigDecimal calculateTotalExpenses(Long id) {
+        List<ExpenseDTO> expenses = expenseService.findAllByAccountingId(id);
+        return expenses.stream()
+                .map(ExpenseDTO::getMontant)
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
+    }
+
+    @Override
+    public BigDecimal calculateBenefQuotidien(RevenueDTO revenueDTO) {
+        return null;
     }
 }
