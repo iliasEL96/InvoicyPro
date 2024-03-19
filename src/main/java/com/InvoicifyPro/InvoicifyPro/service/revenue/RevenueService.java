@@ -10,6 +10,8 @@ public interface RevenueService {
 
     public RevenueDTO findById(Long id);
 
+    public List<RevenueDTO> findAllByAccountingId( Long accountingId);
+
     public RevenueDTO save(RevenueDTO revenueDTO);
 
     public void deleteById(Long id);

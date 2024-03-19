@@ -42,6 +42,8 @@ public class Accounting implements Identifiable {
 
     private BigDecimal totalExpenses;
 
+    private BigDecimal totalRevenues;
+
     @CreationTimestamp
     private LocalDate createdAt;
 

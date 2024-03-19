@@ -8,6 +8,7 @@ import com.InvoicifyPro.InvoicifyPro.entity.Accounting;
 import com.InvoicifyPro.InvoicifyPro.exception.ResourceNotFoundException;
 import com.InvoicifyPro.InvoicifyPro.repositories.AccountingRepository;
 import com.InvoicifyPro.InvoicifyPro.service.expense.ExpenseService;
+import com.InvoicifyPro.InvoicifyPro.service.revenue.RevenueService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,11 +26,14 @@ public class AccountingServiceImpl implements AccountingService{
 
     private final ExpenseService expenseService;
 
+    private final RevenueService revenueService;
+
     @Autowired
-    public AccountingServiceImpl(AccountingRepository accountingRepository, AccountingMapper accountingMapper, ExpenseService expenseService){
+    public AccountingServiceImpl(AccountingRepository accountingRepository, AccountingMapper accountingMapper, ExpenseService expenseService, RevenueService revenueService){
         this.accountingRepository = accountingRepository;
         this.accountingMapper = accountingMapper;
         this.expenseService = expenseService;
+        this.revenueService = revenueService;
     }
 
     @Override
@@ -69,7 +73,15 @@ public class AccountingServiceImpl implements AccountingService{
     }
 
     @Override
-    public BigDecimal calculateBenefQuotidien(RevenueDTO revenueDTO) {
-        return null;
+    public BigDecimal calculateTotalRevenues(Long id) {
+        List<RevenueDTO> revenues = revenueService.findAllByAccountingId(id);
+        return revenues.stream().map(RevenueDTO::getMontant).reduce(BigDecimal.ZERO, BigDecimal::add);
+    }
+
+    @Override
+    public BigDecimal calculateBenefQuotidien(Long id) {
+        BigDecimal totalRevenues = calculateTotalRevenues(id);
+        BigDecimal totalExpenses = calculateTotalExpenses(id);
+        return totalRevenues.subtract(totalExpenses) ;
     }
 }

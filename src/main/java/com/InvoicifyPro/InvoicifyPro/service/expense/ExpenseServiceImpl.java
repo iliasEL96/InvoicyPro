@@ -39,6 +39,9 @@ public class ExpenseServiceImpl implements ExpenseService {
     @Override
     public List<ExpenseDTO> findAllByAccountingId(Long accountingId) {
         List<Expense> expenses = expenseRepository.findAllByAccountingId(accountingId);
+        if(expenses.isEmpty()){
+            throw new ResourceNotFoundException("accounting",accountingId );
+        }
         return expenses.stream().map(expenseMapper::expenseToExpenseDTO).collect(Collectors.toList());
     }
 

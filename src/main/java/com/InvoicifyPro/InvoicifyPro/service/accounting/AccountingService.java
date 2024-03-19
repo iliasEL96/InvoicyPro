@@ -15,7 +15,9 @@ public interface AccountingService {
     public void deleteById(Long id);
 
     public BigDecimal calculateTotalExpenses(Long id);
-    public BigDecimal calculateBenefQuotidien(RevenueDTO revenueDTO);
+
+    public BigDecimal calculateTotalRevenues(Long id);
+    public BigDecimal calculateBenefQuotidien(Long id);
 
 
 
