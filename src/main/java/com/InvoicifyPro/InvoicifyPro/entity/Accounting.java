@@ -8,6 +8,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -20,21 +21,23 @@ public class Accounting implements Identifiable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private BigDecimal  benefQuotidien;
+    private LocalDate date;
+
+    private BigDecimal benefQuotidien;
 
     private double margeQuotidien;
 
     private double roasQuotidien;
 
-    private BigDecimal  benefTotalAvantImpot;
+    private BigDecimal benefTotalAvantImpot;
 
     private double margeAvantImpot;
 
     private double roasTotal;
 
-    private BigDecimal  chiffreDaffaire;
+    private BigDecimal chiffreDaffaire;
 
-    private BigDecimal  duAUrssaf;
+    private BigDecimal duAUrssaf;
 
     private BigDecimal benefTotalApresImpot;
 
@@ -50,14 +53,14 @@ public class Accounting implements Identifiable {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
-    private Boolean isRefund ;
+    private Boolean isRefund;
 
-    @OneToMany(mappedBy = "accounting", fetch=FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "accounting", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Expense> expenses;
 
-    @OneToMany(mappedBy = "accounting", fetch=FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "accounting", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Revenue> revenues;
 
-    @OneToMany(mappedBy = "accounting", fetch=FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "accounting", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Refund> refunds;
 }
