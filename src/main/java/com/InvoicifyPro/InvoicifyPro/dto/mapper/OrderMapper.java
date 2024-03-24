@@ -1,15 +1,15 @@
 package com.InvoicifyPro.InvoicifyPro.dto.mapper;
 
-import com.InvoicifyPro.InvoicifyPro.dto.dtoEntite.OrderDTO;
-import com.InvoicifyPro.InvoicifyPro.entity.Order;
+import com.InvoicifyPro.InvoicifyPro.dto.dtoEntite.OrderDetailsDTO;
+import com.InvoicifyPro.InvoicifyPro.entity.OrderDetails;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
 public interface OrderMapper {
 
-    public OrderDTO orderToOrderDTO(Order order);
+    public OrderDetailsDTO orderToOrderDTO(OrderDetails orderDetails);
 
-    public Order orderDTOToOrder(OrderDTO dto);
+    public OrderDetails orderDTOToOrder(OrderDetailsDTO dto);
 
 
 

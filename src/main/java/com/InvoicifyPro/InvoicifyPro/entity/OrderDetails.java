@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @Setter
 @Getter
 @Entity
-public class Order implements Identifiable {
+public class OrderDetails implements Identifiable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
