@@ -57,7 +57,7 @@ public class ExpenseServiceImpl implements ExpenseService {
     @Override
     @Transactional
     public void deleteById(Long id) {
-        if(expenseRepository.existsById(id)){
+        if(!expenseRepository.existsById(id)){
             throw new ResourceNotFoundException("Expense",id );
         }
         expenseRepository.deleteById(id);

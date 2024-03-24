@@ -44,5 +44,5 @@ public class Revenue implements Identifiable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "commande_id")
-    private Order order;
+    private OrderDetails orderDetails;
 }
