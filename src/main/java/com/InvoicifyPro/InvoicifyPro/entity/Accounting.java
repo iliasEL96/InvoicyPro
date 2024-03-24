@@ -8,7 +8,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 
@@ -45,10 +45,10 @@ public class Accounting implements Identifiable {
     private BigDecimal totalRevenues;
 
     @CreationTimestamp
-    private LocalDate createdAt;
+    private LocalDateTime createdAt;
 
     @UpdateTimestamp
-    private LocalDate updatedAt;
+    private LocalDateTime updatedAt;
 
     private Boolean isRefund ;
 
