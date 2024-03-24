@@ -1,10 +1,9 @@
 package com.InvoicifyPro.InvoicifyPro.repositories;
 
-import com.InvoicifyPro.InvoicifyPro.entity.User;
+import com.InvoicifyPro.InvoicifyPro.entity.OrderDetails;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-
 @Repository
-public interface UserRepository extends JpaRepository<User,Long> {
+public interface OrderDetailsRepository extends JpaRepository<OrderDetails, Long> {
 }

@@ -47,7 +47,7 @@ public class ClientServiceImpl implements ClientService{
     @Override
     @Transactional
     public void deleteById(Long id) {
-        if(clientRepository.existsById(id)){
+        if(!clientRepository.existsById(id)){
             throw new ResourceNotFoundException("Client",id );
         }
         clientRepository.deleteById(id);

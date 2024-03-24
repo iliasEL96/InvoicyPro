@@ -40,6 +40,10 @@ public class Accounting implements Identifiable {
 
     private double margeTotalApresImpot;
 
+    private BigDecimal totalExpenses;
+
+    private BigDecimal totalRevenues;
+
     @CreationTimestamp
     private LocalDate createdAt;
 

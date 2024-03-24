@@ -1,8 +1,8 @@
 package com.InvoicifyPro.InvoicifyPro.controller;
 
 
-import com.InvoicifyPro.InvoicifyPro.dto.dtoEntite.OrderDTO;
-import com.InvoicifyPro.InvoicifyPro.service.order.OrderService;
+import com.InvoicifyPro.InvoicifyPro.dto.dtoEntite.OrderDetailsDTO;
+import com.InvoicifyPro.InvoicifyPro.service.OrderDetails.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,29 +10,29 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/order")
-public class OrderController {
+public class OrderDetailsController {
 
     private final OrderService orderService;
 
     @Autowired
-    public OrderController(OrderService orderService) {
+    public OrderDetailsController(OrderService orderService) {
         this.orderService = orderService;
     }
 
     @GetMapping
-    public List<OrderDTO> getAllOrders(){
+    public List<OrderDetailsDTO> getAllOrders(){
         return orderService.findAll();
     }
 
 
     @GetMapping("/{id}")
-    public OrderDTO getOrderById(@PathVariable Long id){
+    public OrderDetailsDTO getOrderById(@PathVariable Long id){
         return orderService.findById(id);
     }
 
     @PostMapping
-    public OrderDTO createOrder( @RequestBody OrderDTO orderDTO){
-        return orderService.save(orderDTO);
+    public OrderDetailsDTO createOrder(@RequestBody OrderDetailsDTO orderDetailsDTO){
+        return orderService.save(orderDetailsDTO);
     }
 
     @DeleteMapping("/{id}")

@@ -12,6 +12,8 @@ public interface ExpenseService {
 
     public ExpenseDTO findById(Long id);
 
+    public List<ExpenseDTO> findAllByAccountingId(Long accountingId);
+
     public ExpenseDTO save(ExpenseDTO expenseDTO);
 
     public void deleteById(Long id);

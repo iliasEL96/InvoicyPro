@@ -8,7 +8,7 @@ import java.time.LocalDate;
 
 @Getter
 @Setter
-public class OrderDTO implements SimpleDTO {
+public class OrderDetailsDTO implements SimpleDTO {
 
     private Long id;
     private LocalDate date;

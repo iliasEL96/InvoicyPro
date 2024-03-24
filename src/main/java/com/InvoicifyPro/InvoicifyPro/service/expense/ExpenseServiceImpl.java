@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -34,6 +35,16 @@ public class ExpenseServiceImpl implements ExpenseService {
         Expense expense = expenseRepository.findById(id).orElseThrow( ()-> new ResourceNotFoundException("Expense", id));
         return expenseMapper.expenseToExpenseDTO(expense);
     }
+
+    @Override
+    public List<ExpenseDTO> findAllByAccountingId(Long accountingId) {
+        List<Expense> expenses = expenseRepository.findAllByAccountingId(accountingId);
+        if(expenses.isEmpty()){
+            throw new ResourceNotFoundException("accounting",accountingId );
+        }
+        return expenses.stream().map(expenseMapper::expenseToExpenseDTO).collect(Collectors.toList());
+    }
+
 
     @Override
     @Transactional
