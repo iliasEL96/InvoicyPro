@@ -8,7 +8,7 @@ import lombok.Setter;
 
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
@@ -25,9 +25,9 @@ public class RefundDTO implements SimpleDTO {
 
     private Long accountingId;
 
-    private LocalDate createdAt;
+    private LocalDateTime createdAt;
 
-    private LocalDate updatedAt;
+    private LocalDateTime updatedAt;
 
     private List<Long>  clientsId;
 

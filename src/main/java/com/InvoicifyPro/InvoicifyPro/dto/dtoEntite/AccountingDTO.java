@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
@@ -34,9 +34,13 @@ public class AccountingDTO implements SimpleDTO {
 
     private double margeTotalApresImpot;
 
-    private LocalDate createdAt;
+    private BigDecimal totalExpenses;
 
-    private LocalDate updatedAt;
+    private BigDecimal totalRevenues;
+
+    private LocalDateTime createdAt;
+
+    private LocalDateTime updatedAt;
 
     private Boolean isRefund;
 
