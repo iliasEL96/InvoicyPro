@@ -9,6 +9,7 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 
 @Getter
@@ -22,9 +23,9 @@ public class ExpenseDTO implements SimpleDTO {
     private BigDecimal montant;
     private LocalDate date;
 
-    private LocalDate createdAt;
+    private LocalDateTime createdAt;
 
-    private LocalDate updatedAt;
+    private LocalDateTime updatedAt;
 
     private Long accountingId;
 }

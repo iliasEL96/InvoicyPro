@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
@@ -14,29 +15,35 @@ public class AccountingDTO implements SimpleDTO {
 
     private Long id;
 
-    private BigDecimal  benefQuotidien;
+    private LocalDate date;
+
+    private BigDecimal benefQuotidien;
 
     private double margeQuotidien;
 
     private double roasQuotidien;
 
-    private BigDecimal  benefTotalAvantImpot;
+    private BigDecimal benefTotalAvantImpot;
 
     private double margeAvantImpot;
 
     private double roasTotal;
 
-    private BigDecimal  chiffreDaffaire;
+    private BigDecimal chiffreDaffaire;
 
-    private BigDecimal  duAUrssaf;
+    private BigDecimal duAUrssaf;
 
     private BigDecimal benefTotalApresImpot;
 
     private double margeTotalApresImpot;
 
-    private LocalDate createdAt;
+    private BigDecimal totalExpenses;
 
-    private LocalDate updatedAt;
+    private BigDecimal totalRevenues;
+
+    private LocalDateTime createdAt;
+
+    private LocalDateTime updatedAt;
 
     private Boolean isRefund;
 
