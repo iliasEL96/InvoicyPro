@@ -9,7 +9,7 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring")
 public interface RevenueMapper {
 
-    @Mapping(source = "order.id" , target = "orderId")
+    @Mapping(source = "orderDetails.id" , target = "orderId")
     @Mapping(source = "accounting.id" , target = "accountingId")
     public RevenueDTO revenueToRevenueDTO(Revenue revenue);
 
