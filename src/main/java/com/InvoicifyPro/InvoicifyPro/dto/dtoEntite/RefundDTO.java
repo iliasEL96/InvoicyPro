@@ -8,6 +8,7 @@ import lombok.Setter;
 
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -23,12 +24,16 @@ public class RefundDTO implements SimpleDTO {
 
     private RefundType refundType;
 
+    private LocalDate dateDeCommande;
+
+    private LocalDate dateDeRemboursement;
+
     private Long accountingId;
 
     private LocalDateTime createdAt;
 
     private LocalDateTime updatedAt;
 
-    private List<Long>  clientsId;
+    private List<Long> clientsId;
 
 }

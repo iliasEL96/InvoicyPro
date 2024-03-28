@@ -10,6 +10,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -22,7 +23,13 @@ public class Refund implements Identifiable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String nomComplet;
+
     private BigDecimal montantRemboursement;
+
+    private LocalDate dateDeCommande;
+
+    private LocalDate dateDeRemboursement;
 
     @Enumerated(EnumType.STRING)
     private RefundMethod refundMethod;
@@ -30,8 +37,9 @@ public class Refund implements Identifiable {
     @Enumerated(EnumType.STRING)
     private RefundType refundType;
 
+
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-    @JoinColumn (name = "accounting_id")
+    @JoinColumn(name = "accounting_id")
     private Accounting accounting;
 
     @CreationTimestamp
@@ -40,11 +48,7 @@ public class Refund implements Identifiable {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(
-            name = "Refund_client",
-            joinColumns = @JoinColumn(name = "refund_id"),
-            inverseJoinColumns = @JoinColumn(name = "client_id")
-    )
-    private List<Client> clients;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "client_id")
+    private Client client;
 }

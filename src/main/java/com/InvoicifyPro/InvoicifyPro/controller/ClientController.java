@@ -18,23 +18,24 @@ public class ClientController {
     public ClientController(ClientService clientService) {
         this.clientService = clientService;
     }
+
     @GetMapping
-    public List<ClientDTO> getAllClient(){
+    public List<ClientDTO> getAllClients() {
         return clientService.findAll();
     }
 
     @GetMapping("/{id}")
-    public ClientDTO getClientByID( @PathVariable Long id){
+    public ClientDTO getClientByID(@PathVariable Long id) {
         return clientService.findById(id);
     }
 
     @PostMapping
-    public ClientDTO createClient(@RequestBody ClientDTO clientDTO ){
+    public ClientDTO createClient(@RequestBody ClientDTO clientDTO) {
         return clientService.save(clientDTO);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteById( @PathVariable Long id){
-         clientService.deleteById(id);
+    public void deleteById(@PathVariable Long id) {
+        clientService.deleteById(id);
     }
 }

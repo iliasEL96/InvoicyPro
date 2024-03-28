@@ -15,21 +15,11 @@ import java.util.stream.Collectors;
 public interface RefundMapper {
 
     @Mappings(
-            @Mapping(source = "clients", target = "clientsId", qualifiedByName = "idList")
+            @Mapping(source = "accounting.id", target = "accountingId")
     )
     public RefundDTO refundToRefundDTO(Refund refund);
 
     public Refund refundDTOToRefund(RefundDTO dto);
-
-    @Named("idList")
-    default List<Long> idList(List<? extends Identifiable> identifiableEntities){
-        if(identifiableEntities == null){
-            return null;
-        }
-
-        return identifiableEntities.stream().map(Identifiable :: getId).collect(Collectors.toList());
-
-    };
 
 
 }
