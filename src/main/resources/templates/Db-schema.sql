@@ -6,7 +6,7 @@ create table expense (id bigint not null auto_increment,primary key (id),type en
 
 create table order_details (id bigint not null auto_increment, primary key (id), date date, total_des_commandes integer not null) engine=InnoDB;
 
-create table refund ( id bigint not null auto_increment, primary key (id), montant_remboursement decimal(38,2),refund_method enum ('CARTE_CREDIT','PAYPAL','KLARNA','AUTRE'), refund_type enum ('PARTIEL','TOTAL'), accounting_id bigint, created_at datetime(6)time(6), updated_at datetime(6)) engine=InnoDB;
+create table refund ( id bigint not null auto_increment, primary key (id), nom_complet varchar(255), montant_remboursement decimal(38,2),date_De_Commande date,date_De_Remboursement date, refund_method enum ('CARTE_CREDIT','PAYPAL','KLARNA','AUTRE'), refund_type enum ('PARTIEL','TOTAL'), accounting_id bigint, created_at datetime(6)time(6), updated_at datetime(6)) engine=InnoDB;
 
 create table refund_client (client_id bigint not null, refund_id bigint not null) engine=InnoDB;
 

@@ -13,7 +13,7 @@ import java.util.List;
 @Setter
 @Entity
 public class Client implements Identifiable {
-   @Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -23,6 +23,6 @@ public class Client implements Identifiable {
     private String email;
     private String numeroTelephone;
 
-    @ManyToMany(mappedBy = "clients", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Refund> refunds;
 }

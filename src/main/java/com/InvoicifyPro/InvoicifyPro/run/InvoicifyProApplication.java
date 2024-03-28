@@ -9,7 +9,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 @EnableJpaRepositories(basePackages = "com.InvoicifyPro.InvoicifyPro.repositories")
-@ComponentScan({"com.InvoicifyPro.InvoicifyPro.controller", "com.InvoicifyPro.InvoicifyPro.service", "com.InvoicifyPro.InvoicifyPro.dto.dtoEntite", "com.InvoicifyPro.InvoicifyPro.dto.mapper", "com.InvoicifyPro.InvoicifyPro.event"})
+@ComponentScan({"com.InvoicifyPro.InvoicifyPro.controller", "com.InvoicifyPro.InvoicifyPro.service", "com.InvoicifyPro.InvoicifyPro.dto.dtoEntite", "com.InvoicifyPro.InvoicifyPro.dto.mapper",
+        "com.InvoicifyPro.InvoicifyPro.event", "com.InvoicifyPro.InvoicifyPro.exception"})
 @EntityScan(basePackages = {"com.InvoicifyPro.InvoicifyPro.entity"})
 public class InvoicifyProApplication {
 
